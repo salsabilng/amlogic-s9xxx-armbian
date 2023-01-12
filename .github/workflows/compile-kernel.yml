@@ -32,6 +32,7 @@ on:
           - 5.10.160
           - 5.15.85
           - 6.1.1
+          - 6.1.4
       kernel_auto:
         description: "Auto use the latest kernel"
         required: false
@@ -85,7 +86,7 @@ jobs:
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         with:
           build_target: kernel
-          kernel_source: ${{ inputs.kernel_source }}
+          kernel_source: salsabilng/linux-6.1.y
           kernel_version: ${{ inputs.kernel_version }}
           kernel_auto: ${{ inputs.kernel_auto }}
           kernel_package: ${{ inputs.kernel_package }}
@@ -93,7 +94,7 @@ jobs:
           kernel_config: ${{ inputs.kernel_config }}
 
       - name: Upload Kernel to Release
-        uses: ncipollo/release-action@main
+        uses: salsabilng/amlogic-s9xxx-armbian@main
         if: ${{ env.PACKAGED_STATUS }} == 'success' && !cancelled()
         with:
           tag: kernel_${{ env.PACKAGED_OUTPUTTAGS }}
