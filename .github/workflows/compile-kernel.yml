@@ -18,6 +18,7 @@ on:
         options:
           - unifreq
           - kernel.org
+          - salsabilng/linux-6.1.y
       kernel_version:
         description: "Select kernel version"
         required: false
@@ -86,7 +87,7 @@ jobs:
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         with:
           build_target: kernel
-          kernel_source: salsabilng/linux-6.1.y
+          kernel_source: ${{ inputs.kernel_source }}
           kernel_version: ${{ inputs.kernel_version }}
           kernel_auto: ${{ inputs.kernel_auto }}
           kernel_package: ${{ inputs.kernel_package }}
