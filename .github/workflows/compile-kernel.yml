@@ -18,6 +18,7 @@ on:
         options:
           - unifreq
           - kernel.org
+          - salsabilng/linux-5.15.y
       kernel_version:
         description: "Select kernel version"
         required: false
@@ -56,7 +57,7 @@ on:
       kernel_sign:
         description: "Set the kernel custom signature"
         required: false
-        default: "-ophub"
+        default: "-abil"
       kernel_config:
         description: "Set the path of kernel .config"
         required: false
