@@ -18,7 +18,7 @@ on:
         options:
           - unifreq
           - kernel.org
-          - salsabilng/linux-5.15.y
+          - salsabilng/linux-6.1.y
       kernel_version:
         description: "Select kernel version"
         required: false
