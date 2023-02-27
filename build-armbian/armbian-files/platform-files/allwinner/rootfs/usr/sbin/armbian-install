@@ -195,11 +195,8 @@ create_partition() {
         echo -e "${INFO} 01. Write bootloader: ${MAINLINE_UBOOT}"
         dd if="${BOOTLOADER_IMG}" of="${DEV_EMMC}" conv=fsync,notrunc bs=1024 seek=8
         dd if="${MAINLINE_UBOOT}" of="${DEV_EMMC}" conv=fsync,notrunc bs=1024 seek=40
-    elif [[ "${SPL_LOAD_ADDRESS}" == "latest" ]] && [[ -n "${BOOTLOADER_IMG}" && -f "${BOOTLOADER_IMG}" ]]; then
+    elif [[ -n "${BOOTLOADER_IMG}" && -f "${BOOTLOADER_IMG}" ]]; then
         echo -e "${INFO} 02. Write bootloader: ${BOOTLOADER_IMG}"
-        dd if="${BOOTLOADER_IMG}" of="${DEV_EMMC}" conv=fsync,notrunc bs=8k seek=1
-    elif [[ "${SPL_LOAD_ADDRESS}" == "early" ]] && [[ -n "${BOOTLOADER_IMG}" && -f "${BOOTLOADER_IMG}" ]]; then
-        echo -e "${INFO} 03. Write bootloader: ${BOOTLOADER_IMG}"
         dd if="${BOOTLOADER_IMG}" of="${DEV_EMMC}" conv=fsync,notrunc bs=1024 seek=8
     fi
     [[ "${?}" -eq "0" ]] || error_msg "Failed to write bootloader using [ dd ]."
