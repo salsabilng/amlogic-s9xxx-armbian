@@ -36,6 +36,7 @@ on:
           - crrc
           - dg3399
           - dlfr100
+          - doornet2
           - e25
           - eaidk-610
           - emb3531
