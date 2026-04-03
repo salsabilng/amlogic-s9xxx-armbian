@@ -77,7 +77,7 @@ board_release_file="etc/armbian-board-release.conf"
 ophub_release_file="etc/ophub-release"
 
 # U-BOOT files download repository
-uboot_repo="https://github.com/ophub/u-boot"
+uboot_repo="https://github.com/salsabilng/u-boot"
 # Firmware files download repository
 firmware_repo="https://github.com/ophub/firmware"
 
